@@ -7,9 +7,9 @@
   },
   "devDependencies": {
     "@types/amqplib": "^0.8.2",
-    "@types/hapi__joi": "^17.1.8",
     "@types/jest": "~27.0.2",
     "@types/node": "~16.11.6",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "~5.7.0",
     "@typescript-eslint/parser": "~5.7.0",
     "eslint": "~8.4.1",
@@ -23,23 +23,25 @@
     "typescript": "~4.5.3"
   },
   "scripts": {
-    "start": "node build/src/index.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "rpc:server": "node build/src/example/server.js",
+    "rpc:client": "node build/src/example/client.js"
   },
   "author": "Neoflies",
   "license": "Apache-2.0",
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
     "amqplib": "^0.8.0",
+    "joi": "^17.5.0",
     "pino": "^7.6.3",
     "pino-pretty": "^7.3.0",
-    "tslib": "~2.3.1"
+    "tslib": "~2.3.1",
+    "uuid": "^8.3.2"
   },
   "volta": {
     "node": "16.13.0"
